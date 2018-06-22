@@ -39,4 +39,9 @@ public class UserDto {
 		this.salary = salary;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDto [username=" + username + ", password=" + password + ", age=" + age + ", salary=" + salary + "]";
+	}
+
 }

@@ -19,34 +19,33 @@ import com.tminnova.api.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
-	
-	 @Autowired
-	 private UserService userService;
-	
+
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("/")
 	public List getAllUsers() {
-		System.out.println(userService.findAll());
 		return userService.findAll();
 	}
-	
+
 	@PostMapping("/")
-	public User createUser(@RequestBody UserDto user) {	
+	public User createUser(@RequestBody UserDto user) {
 		return userService.save(user);
 	}
-	
+
 	@PutMapping("/")
-    public User update(@RequestBody UserDto user){
-        return userService.save(user);
-    }
-	
-	@GetMapping(path = {"/{id}"})
-    public User findOne(@PathVariable("id") int id){
-        return userService.findById(id);
-    }
-	
-	@DeleteMapping(path ={"/{id}"})
-	public void deleteUser(@PathVariable("id") int id) {	
+	public User update(@RequestBody UserDto user) {
+		return userService.save(user);
+	}
+
+	@GetMapping(path = { "/{id}" })
+	public User findOne(@PathVariable("id") int id) {
+		System.out.println(userService.findById(id));
+		return userService.findById(id);
+	}
+
+	@DeleteMapping(path = { "/{id}" })
+	public void deleteUser(@PathVariable("id") int id) {
 		userService.delete(Long.valueOf(id));
 	}
 

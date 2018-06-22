@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Autowired
 	private UserDao userDao;
 
-	/*@Autowired
-	private BCryptPasswordEncoder bcryptEncoder;*/
+	@Autowired
+	private BCryptPasswordEncoder bcryptEncoder;
 
 	/*public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(username);
@@ -66,11 +66,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDao.findById(id).get();
 	}
 
-	@Override
-	public User save(UserDto user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -80,13 +75,15 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 
 
-	/*@Override
+	@Override
 	public User save(UserDto user) {
 		User newUser = new User();
 		newUser.setUsername(user.getUsername());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
 		newUser.setAge(user.getAge());
 		newUser.setSalary(user.getSalary());
+		newUser.setId(4L);
+		System.out.println(newUser);
 		return userDao.save(newUser);
-	}*/
+	}
 }
