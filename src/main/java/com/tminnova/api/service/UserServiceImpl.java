@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Autowired
 	private BCryptPasswordEncoder bcryptEncoder;
 
-	/*public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				getAuthority(user));
-	}*/
+	}
 
 	private Set<SimpleGrantedAuthority> getAuthority(User user) {
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
@@ -65,15 +65,6 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	public User findById(long id) {
 		return userDao.findById(id).get();
 	}
-
-
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 
 	@Override
 	public User save(UserDto user) {
