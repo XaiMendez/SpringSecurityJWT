@@ -1,5 +1,8 @@
 package com.tminnova.api.config;
 
+import static com.tminnova.api.security.model.Constants.HEADER_STRING;
+import static com.tminnova.api.security.model.Constants.TOKEN_PREFIX;
+
 import java.io.IOException;
 
 import javax.servlet.FilterChain;
@@ -17,10 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
-
-import static com.tminnova.api.model.Constants.HEADER_STRING;
-import static com.tminnova.api.model.Constants.TOKEN_PREFIX;
-import static com.tminnova.api.model.Constants.HEADER_STRING;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	

@@ -1,5 +1,9 @@
 package com.tminnova.api.config;
 
+import static com.tminnova.api.security.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
+import static com.tminnova.api.security.model.Constants.AUTHORITIES_KEY;
+import static com.tminnova.api.security.model.Constants.SIGNING_KEY;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -19,10 +23,6 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
-import static com.tminnova.api.model.Constants.SIGNING_KEY;
-import static com.tminnova.api.model.Constants.AUTHORITIES_KEY;
-import static com.tminnova.api.model.Constants.ACCESS_TOKEN_VALIDITY_SECONDS;
 
 @Component
 public class TokenProvider implements Serializable {

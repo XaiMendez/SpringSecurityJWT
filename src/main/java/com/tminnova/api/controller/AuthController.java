@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tminnova.api.config.TokenProvider;
 import com.tminnova.api.dao.UserDao;
-import com.tminnova.api.model.AuthToken;
-import com.tminnova.api.model.LoginUser;
 import com.tminnova.api.model.User;
 import com.tminnova.api.model.UserDto;
+import com.tminnova.api.security.model.AuthToken;
+import com.tminnova.api.security.model.LoginUser;
 
 @RestController
 @RequestMapping("/auth")
@@ -31,13 +31,12 @@ public class AuthController {
     @Autowired
     private TokenProvider jwtTokenUtil;
 
-    @Autowired
-    private UserDao userService;
+    //@Autowired
+    //private UserDao userService;
 
     @PostMapping("/token")
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
     	
-    	System.out.println(loginUser);
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginUser.getUsername(),

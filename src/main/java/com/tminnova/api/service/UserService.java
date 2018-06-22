@@ -7,14 +7,18 @@ import com.tminnova.api.model.UserDto;
 
 public interface UserService {
 
-	User save(UserDto user);
+	User create(UserDto user);
 
 	List<User> findAll();
 
-	void delete(long id);
+	User delete(long id);
+	
+	User findById(long id);
+	
+	User update(UserDto user);
 
 	User findOne(String username);
 
-	User findById(long id);
+	
 
 }

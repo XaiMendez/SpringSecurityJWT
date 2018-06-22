@@ -52,8 +52,14 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public void delete(long id) {
-		userDao.deleteById(id);
+	public User delete(long id) {
+		
+		User user = findById(id);
+		if (user != null) {
+			userDao.delete(user);
+		}
+		return user;
+		
 	}
 
 	@Override
@@ -67,14 +73,26 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public User save(UserDto user) {
-		User newUser = new User();
-		newUser.setUsername(user.getUsername());
-		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setAge(user.getAge());
-		newUser.setSalary(user.getSalary());
-		newUser.setId(4L);
-		System.out.println(newUser);
-		return userDao.save(newUser);
+	public User create(UserDto userDto) {
+		User user = new User();
+		user.setUsername(userDto.getUsername());
+		user.setPassword(bcryptEncoder.encode(userDto.getPassword()));
+		user.setAge(userDto.getAge());
+		user.setSalary(userDto.getSalary());
+		//newUser.setId(4L);
+		
+		return userDao.save(user);
+	}
+	
+	public User update(User user) {
+		return userDao.save(user);
+	}
+
+	@Override
+	public User update(UserDto userDto) {
+		User user = findById(userDto.getAge());
+		user.setUsername(userDto.getUsername());
+		user.setPassword(bcryptEncoder.encode(userDto.getPassword()));
+		return null;
 	}
 }

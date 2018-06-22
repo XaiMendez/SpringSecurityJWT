@@ -30,12 +30,12 @@ public class UserController {
 
 	@PostMapping("/")
 	public User createUser(@RequestBody UserDto user) {
-		return userService.save(user);
+		return userService.create(user);
 	}
 
 	@PutMapping("/")
 	public User update(@RequestBody UserDto user) {
-		return userService.save(user);
+		return userService.update(user);
 	}
 
 	@GetMapping(path = { "/{id}" })

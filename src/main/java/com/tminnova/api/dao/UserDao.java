@@ -8,5 +8,6 @@ import com.tminnova.api.model.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Long> {
+	
 	User findByUsername(String username);
 }

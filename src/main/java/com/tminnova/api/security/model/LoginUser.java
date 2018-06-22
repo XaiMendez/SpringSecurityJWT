@@ -1,4 +1,4 @@
-package com.tminnova.api.model;
+package com.tminnova.api.security.model;
 
 public class LoginUser {
 
